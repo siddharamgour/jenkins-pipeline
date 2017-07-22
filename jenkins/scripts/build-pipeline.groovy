@@ -1,7 +1,5 @@
 node {
-    git poll: true, branch: 'development', credentialsId: 'fc417088-73fb-4642-a7f4-aa827980386c', url: 'ssh://APKAIEHC6B4UNIPCJBEA@git-codecommit.eu-west-1.amazonaws.com/v1/repos/pcp-core'
-		
-		//$BRANCH
+   		//$BRANCH
 		//$ENVIRONMENT
 		//$CLASSIFIER
 		
