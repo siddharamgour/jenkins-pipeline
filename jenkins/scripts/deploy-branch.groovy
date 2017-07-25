@@ -1,6 +1,4 @@
 node {
-
-git branch: "master", poll: false, url: 'https://github.com/cristhianguardado/maven.git'
    		//$BRANCH
 		//$ENVIRONMENT
 		//$CLASSIFIER
@@ -16,11 +14,11 @@ git branch: "master", poll: false, url: 'https://github.com/cristhianguardado/ma
 	   	sh 'rm -rf *'
 	    sh 'rm -rf .git'
 	    sh 'rm -rf .gitignore'
+	    
+	 //Get the Updated  project   
+	 git branch: "master", poll: false, url: 'https://github.com/cristhianguardado/maven.git'
 	
 	
-		timeout(time: 2, unit: 'MINUTES') {
-            input "Continue with deployment?"
-        }
         sh "${mavenHome}/mvn versions:set -DnewVersion=${CLASSIFIER} -DgenerateBackupPoms=false"
         sh "${mavenHome}/mvn clean install"
         
