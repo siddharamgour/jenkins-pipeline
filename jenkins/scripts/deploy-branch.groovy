@@ -11,6 +11,13 @@ git branch: "master", poll: false, url: 'https://github.com/cristhianguardado/ma
 	String mavenHome = "${tool 'M3_0_5'}/bin"
 	
 	stage "Build Artifacts for $BRANCH"
+	
+	 //Clean workspace
+	   	sh 'rm -rf *'
+	    sh 'rm -rf .git'
+	    sh 'rm -rf .gitignore'
+	
+	
 		timeout(time: 2, unit: 'MINUTES') {
             input "Continue with deployment?"
         }
@@ -19,47 +26,8 @@ git branch: "master", poll: false, url: 'https://github.com/cristhianguardado/ma
         
         print" Building artifacts for branch $BRANCH "
 	
-    stage "Build Docker Images for $BRANCH"
-    	timeout(time: 2, unit: 'MINUTES') {
-            input "Continue with deployment?"
-        }
-        print"Build Docker Images for $BRANCH"
-   		
-    stage "Deploy JSON Schemas for $BRANCH"
-   		timeout(time: 2, unit: 'MINUTES') {
-            input "Continue with deployment?"
-        }
-        print"Deploy JSON Schemas for $BRANCH"
-        
-    stage "Deploy Swagger UI Documentation for $BRANCH"
-		timeout(time: 2, unit: 'MINUTES') {
-            input "Continue with deployment?"
-        }
-        print"Deploy JSON Schemas for $BRANCH"
-
-    stage "Deploy PCP Documentation for $BRANCH"
-		timeout(time: 2, unit: 'MINUTES') {
-            input "Continue with deployment?"
-        }
-        print"Deploy JSON Schemas for $BRANCH"
-
-    stage "Plan $ENVIRONMENT Environment Update"
-    	timeout(time: 2, unit: 'MINUTES') {
-            input "Continue with deployment?"
-        }
-        print"Plan $ENVIRONMENT Environment Update"
-
-    stage "Update Environment $ENVIRONMENT"
-   		timeout(time: 2, unit: 'MINUTES') {
-            input "Continue with deployment?"
-        }
-        print"Updating Environment $ENVIRONMENT"
-
-    stage "Integration Tests for $BRANCH"
-    	timeout(time: 2, unit: 'MINUTES') {
-            input "Continue with deployment?"
-        }
-        print"Running Integration Tests for $BRANCH"
+  
+   
    
 }
 
