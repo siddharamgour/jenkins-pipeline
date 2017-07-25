@@ -1,4 +1,6 @@
 node {
+
+git branch: "master", poll: false, url: 'https://github.com/cristhianguardado/maven.git'
    		//$BRANCH
 		//$ENVIRONMENT
 		//$CLASSIFIER
