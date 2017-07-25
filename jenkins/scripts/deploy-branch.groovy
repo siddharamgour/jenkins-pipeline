@@ -17,7 +17,6 @@ git branch: "master", poll: false, url: 'https://github.com/cristhianguardado/ma
 	    sh 'rm -rf .git'
 	    sh 'rm -rf .gitignore'
 	
-	
 		timeout(time: 2, unit: 'MINUTES') {
             input "Continue with deployment?"
         }
