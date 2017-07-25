@@ -18,7 +18,7 @@ node {
 	 //Get the Updated  project   
 	 git branch: "master", poll: false, url: 'https://github.com/cristhianguardado/maven.git'
 	
-	
+
         sh "${mavenHome}/mvn versions:set -DnewVersion=${CLASSIFIER} -DgenerateBackupPoms=false"
         sh "${mavenHome}/mvn clean install"
         
